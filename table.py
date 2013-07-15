@@ -100,11 +100,3 @@ class Table(object):
 
 if __name__ == '__main__':
     test_table = Table()
-    test_table.ReadFile("C:\\Users\\vidit.bansal\\Desktop\\pystats", "test.csv", n=2, fields=[
-                        ('Date_1', str), ('Outcome_M11', float)], constructor=Record)
-
-    print len(test_table)
-    print
-    
-    for record in test_table.records:
-        print record.Date_1

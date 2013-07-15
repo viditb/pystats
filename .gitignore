@@ -1,6 +1,7 @@
 data
 log
 results
+notes
 
 *.py[cod]
 
