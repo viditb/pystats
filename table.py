@@ -17,14 +17,13 @@ class Table(object):
         return len(self.records)
 
     def ReadFile(self, data_dir, filename, fields, constructor, delim=",", n=None):
-    # def ReadFile(self, data_dir, filename, delim=",", fields = [], n=None):
         """Reads a compressed data file builds one object per record.
 
         Args:
             data_dir: string directory name
             filename: string name of the file to read
 
-            fields: sequence of (name, start, end, case) tuples specifying
+            fields: sequence of (name, case) tuples specifying
             the fields to extract
 
             constructor: what kind of object to create
@@ -50,22 +49,13 @@ class Table(object):
             record = self.MakeRecord(row, columns, constructor)
             self.AddRecord(record)
 
-        '''
-        for i, line in enumerate(fp):
-            if i == n:
-                break
-            record = self.MakeRecord(line, fields, constructor)
-            self.AddRecord(record)
-        fp.close()
-        '''
-
     def MakeRecord(self, line, fields, constructor):
         """Scans a line and returns an object with the appropriate fields.
 
         Args:
             line: string line from a data file
 
-            fields: sequence of (name, start, end, cast) tuples specifying
+            fields: sequence of (index, name, cast) tuples specifying
             the fields to extract
 
             constructor: callable that makes an object for the record.
