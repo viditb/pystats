@@ -3,7 +3,7 @@
 
 import os
 import csv
-from record import Record
+# from record import Record
 
 
 class Table(object):
